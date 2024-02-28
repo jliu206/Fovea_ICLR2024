@@ -39,7 +39,7 @@ train_data = datasets.ImageFolder(
         #transforms.Resize([112, 112]),
         # transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
-        normalize,
+        #normalize,
     ]))
 
 test_data = datasets.ImageFolder(
