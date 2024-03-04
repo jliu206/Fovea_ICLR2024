@@ -165,6 +165,7 @@ def train():
 
     print(k)
     torch.save(model.policy.state_dict(), 'policy_models/imagenet1000_98_policy_A2C_masked_nostd_weights_5ts_S+M.tar')
+    torch.save(model.critic.state_dict(), 'policy_models/imagenet1000_98_critic_A2C_masked_nostd_weights_5ts_S+M.tar')
     print('finish')
 
 def draw(img_list, aaa, name):
@@ -188,6 +189,7 @@ def draw(img_list, aaa, name):
 def test():
     avg_loss = 0
     model.policy.load_state_dict(torch.load("policy_models/imagenet1000_98_policy_A2C_masked_nostd_weights_5ts_S+M.tar"))
+    model.critic.load_state_dict(torch.load("policy_models/imagenet1000_98_critic_A2C_masked_nostd_weights_5ts_S+M.tar"))
     model.classification.eval()
     model.Foveal.eval()
     model.policy.eval()
