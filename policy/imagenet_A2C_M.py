@@ -145,13 +145,16 @@ def train():
 
     print(k)
     torch.save(model.policy.state_dict(), 'policy_models/imagenet_98_A2c_Softmax_5ts_49.tar')
+    torch.save(model.critic.state_dict(), 'policy_models/imagenet_critic_98_A2c_Softmax_5ts_49.tar')
     print('finish')
 
 def test():
     avg_loss = 0
     model.policy.load_state_dict(torch.load("policy_models/imagenet_98_A2c_Softmax_4ts.tar"))
+    model.critic.load_state_dict(torch.load("policy_models/imagenet_critic_98_A2c_Softmax_4ts.tar"))
     model.classification.eval()
     model.Foveal.eval()
+    model.critic.eval()
     model.policy.eval()
     total_correct = 0
     with torch.no_grad():
