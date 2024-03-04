@@ -66,7 +66,7 @@ def train_one_epoch():
     avg_loss = 0
     total_correct =0
     base_total = 0
-    for data, target in test_loader:
+    for data, target in train_loader:
 
         bs = data.size()[0]
         data = data.to(device)
