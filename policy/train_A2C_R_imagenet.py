@@ -65,7 +65,7 @@ random300_data = test_data
 #random300_data = preprocess_dataset(test_data, a)
 
 train_loader = torch.utils.data.DataLoader(
-    random300_data,
+    train_data,
     batch_size=32, shuffle=True)
 test_loader = torch.utils.data.DataLoader(
     test_data,
